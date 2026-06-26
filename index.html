@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PokerTrack — Support</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:   #0a1f11;
+      --green-felt:   #112b18;
+      --green-mid:    #1a4a28;
+      --gold:         #f5c842;
+      --gold-dim:     #b8860b;
+      --white:        #f4f0e6;
+      --grey:         #8a9e90;
+      --card:         rgba(255,255,255,0.04);
+      --border:       rgba(245,200,66,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--green-deep);
+      color: var(--white);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Felt texture ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,   transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 4px),
+        repeating-linear-gradient(90deg,  transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ── */
+    .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0 36px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .club {
+      font-size: 36px;
+      line-height: 1;
+      color: var(--gold);
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-name span { color: var(--gold); }
+
+    header p {
+      color: var(--grey);
+      font-size: 0.95rem;
+      margin-left: 52px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      gap: 8px;
+      margin: 32px 0 0;
+    }
+
+    nav a {
+      color: var(--grey);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--gold);
+      border-color: var(--border);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: var(--grey);
+      max-width: 520px;
+      font-size: 1.05rem;
+    }
+
+    /* ── Sections ── */
+    section { padding: 52px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 28px;
+    }
+
+    /* ── FAQ ── */
+    .faq { display: flex; flex-direction: column; gap: 2px; }
+
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    details[open] { background: rgba(255,255,255,0.07); }
+
+    summary {
+      padding: 18px 20px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.97rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '+';
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: 300;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-body {
+      padding: 0 20px 18px;
+      color: var(--grey);
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    /* ── Contact ── */
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .contact-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-card p {
+      color: var(--grey);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #0a1f11;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.85; }
+
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 1;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer p { color: var(--grey); font-size: 0.82rem; }
+    footer a { color: var(--grey); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 520px) {
+      .contact-card { flex-direction: column; gap: 12px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <span class="club">♣</span>
+        <h2 class="brand-name"><span>Poker</span>Track</h2>
+      </div>
+      <p>Track your sessions. Own your edge.</p>
+      <nav>
+        <a href="index.html" class="active">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>How can we<br/><em>help you?</em></h1>
+      <p>Everything you need to get the most out of PokerTrack — answers to common questions and a way to reach us directly.</p>
+    </div>
+
+    <!-- FAQ -->
+    <section>
+      <p class="section-label">Frequently Asked Questions</p>
+      <div class="faq">
+
+        <details>
+          <summary>How do I log a new session?</summary>
+          <div class="faq-body">
+            Tap the <strong>+</strong> button on the main screen to start a new session. Enter the game type, stakes, buy-in, and cash-out amount. PokerTrack automatically calculates your profit or loss and session duration.
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I edit or delete a session after saving it?</summary>
+          <div class="faq-body">
+            Yes. Tap any session in your history to open it, then tap <strong>Edit</strong> to make changes or <strong>Delete</strong> to remove it. Deleted sessions cannot be recovered, so double-check before confirming.
+          </div>
+        </details>
+
+        <details>
+          <summary>Where is my data stored?</summary>
+          <div class="faq-body">
+            All your session data is stored locally on your device only. Nothing is sent to any server or third party. If you delete the app, your data will be lost — see the backup question below.
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I back up my data?</summary>
+          <div class="faq-body">
+            Make sure iCloud Backup is enabled on your iPhone (<strong>Settings → [Your Name] → iCloud → iCloud Backup</strong>). PokerTrack's data will be included in your device backup automatically.
+          </div>
+        </details>
+
+        <details>
+          <summary>How are my stats calculated?</summary>
+          <div class="faq-body">
+            PokerTrack calculates your total profit/loss, hourly rate (total profit ÷ total hours played), return on investment, biggest winning and losing sessions, and running totals across your full history.
+          </div>
+        </details>
+
+        <details>
+          <summary>Does PokerTrack work offline?</summary>
+          <div class="faq-body">
+            Yes, entirely. PokerTrack does not require an internet connection at any point. Log sessions anywhere — at the table, on the tube, wherever.
+          </div>
+        </details>
+
+        <details>
+          <summary>Is PokerTrack free?</summary>
+          <div class="faq-body">
+            Yes, PokerTrack is completely free to download and use. There are no in-app purchases, subscriptions, or ads.
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <p class="section-label">Get in Touch</p>
+      <div class="contact-card">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <h3>Still need help?</h3>
+          <p>If your question isn't answered above, send us an email and we'll get back to you as soon as we can.</p>
+          <a class="btn" href="mailto:support@example.com">Email Support</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 PokerTrack. All rights reserved.</p>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PokerTrack — Privacy Policy</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:   #0a1f11;
+      --green-felt:   #112b18;
+      --green-mid:    #1a4a28;
+      --gold:         #f5c842;
+      --gold-dim:     #b8860b;
+      --white:        #f4f0e6;
+      --grey:         #8a9e90;
+      --card:         rgba(255,255,255,0.04);
+      --border:       rgba(245,200,66,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--green-deep);
+      color: var(--white);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,   transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 4px),
+        repeating-linear-gradient(90deg,  transparent, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0 36px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .club { font-size: 36px; line-height: 1; color: var(--gold); }
+
+    .brand-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-name span { color: var(--gold); }
+
+    header p { color: var(--grey); font-size: 0.95rem; margin-left: 52px; }
+
+    nav { display: flex; gap: 8px; margin: 32px 0 0; }
+
+    nav a {
+      color: var(--grey);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--gold);
+      border-color: var(--border);
+    }
+
+    .hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 em { font-style: normal; color: var(--gold); }
+
+    .updated {
+      display: inline-block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      color: var(--grey);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* Policy content */
+    .policy { padding: 52px 0; }
+
+    .policy-block {
+      margin-bottom: 40px;
+    }
+
+    .policy-block h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .policy-block p {
+      color: var(--grey);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .policy-block p + p { margin-top: 10px; }
+
+    /* Highlight box */
+    .highlight {
+      background: rgba(245, 200, 66, 0.07);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 36px 0;
+    }
+
+    .highlight p {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    footer {
+      position: relative; z-index: 1;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer p { color: var(--grey); font-size: 0.82rem; }
+    footer a { color: var(--grey); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 520px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <span class="club">♣</span>
+        <h2 class="brand-name"><span>Poker</span>Track</h2>
+      </div>
+      <p>Track your sessions. Own your edge.</p>
+      <nav>
+        <a href="index.html">Support</a>
+        <a href="privacy.html" class="active">Privacy Policy</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>Privacy<br/><em>Policy</em></h1>
+      <span class="updated">Last updated: June 2026</span>
+    </div>
+
+    <div class="policy">
+
+      <div class="highlight">
+        <p>♣ &nbsp;PokerTrack does not collect, store, or share any of your personal data. Ever.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>Overview</h2>
+        <p>PokerTrack is a personal poker session tracker built for iPhone. This policy explains how your information is handled when you use the app.</p>
+        <p>The short version: all data you enter stays on your device. We have no servers, no accounts, no analytics, and no third-party SDKs that collect your information.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>Data We Collect</h2>
+        <p>We collect nothing. PokerTrack does not collect, transmit, or store any personal information, usage data, or analytics.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>Data Stored on Your Device</h2>
+        <p>Session records you enter (game type, stakes, buy-in, cash-out, notes, and dates) are saved locally on your iPhone using standard iOS storage. This data never leaves your device unless you back it up through Apple's iCloud Backup service, which is governed by Apple's own privacy policy.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>Third Parties</h2>
+        <p>PokerTrack contains no third-party SDKs, advertising networks, crash reporters, or analytics tools. No data is shared with any third party under any circumstances.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>Cookies & Tracking</h2>
+        <p>The app does not use cookies, tracking pixels, device fingerprinting, or any other tracking technology.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>Children's Privacy</h2>
+        <p>PokerTrack does not knowingly collect any information from anyone, including children under the age of 13.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>Changes to This Policy</h2>
+        <p>If this policy ever changes, the updated version will be posted here with a revised date. Since we collect no data, any changes are unlikely to affect your privacy in practice.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>Contact</h2>
+        <p>If you have any questions about this privacy policy, you can reach us at <a href="mailto:support@example.com" style="color: var(--gold); text-decoration: none;">support@example.com</a>.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 PokerTrack. All rights reserved.</p>
+      <a href="index.html">Support</a>
+    </div>
+  </footer>
+
+</body>
+</html>
